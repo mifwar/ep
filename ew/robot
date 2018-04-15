@@ -1,0 +1,9 @@
+#!/usr/bin/php
+<?php
+if(isset($argv[1])){
+	$remote = $argv[1];
+	$file = fopen("myrobot.ini",'w');
+	fwrite($file,$remote);
+	fclose($file);
+}else
+	echo "Insert robot name..\n";
