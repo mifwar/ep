@@ -25,6 +25,9 @@ if(array_key_exists($remote, $robot)){
 		case "checkup":
 			system("e-checkup ".$input2);
 		break;
+		case "monitor":
+			system("e-monitor ".$input2);
+		break;
 		case "run":
 			/*$file = fopen("run.ini",'w');
 			switch($input2){
@@ -64,6 +67,8 @@ if(array_key_exists($remote, $robot)){
 		case "edit":
 			system("e-edit ".$input2);
 		break;
+		case "echo":
+			system("e-echo");
 		break;
 		case "set":
 			switch($input2){
