@@ -25,9 +25,6 @@ if(array_key_exists($remote, $robot)){
 		case "checkup":
 			system("e-checkup ".$input2);
 		break;
-		case "param":
-			system("e-param");
-		break;
 		case "monitor":
 			system("monitor.sh ".$remote);
 		break;
@@ -73,6 +70,8 @@ if(array_key_exists($remote, $robot)){
 		case "edit":
 			system("e-edit ".$input2);
 		break;
+		case "echo":
+			system("e-echo");
 		break;
 		case "set":
 			switch($input2){
@@ -85,9 +84,12 @@ if(array_key_exists($remote, $robot)){
 				case "server":
 					system("e-server");
 				break;
+				case "dark":case "light":
+					system("e-vm_calibrate ".$input2);
+				break;
 			}
 		break;
 	}
 }
 else
-	echo "# The robot doesnt exist..\n";
+	echo "\033[1m## The robot doesnt exist..\n\033[0m";

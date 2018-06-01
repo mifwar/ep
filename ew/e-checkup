@@ -15,10 +15,10 @@ $remote=substr($remote,0,strlen($remote));
 $DATE=date('Y-m-d G:i:s');
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
-	echo "# Updating Date $remote..\n";
+	echo "\033[1m## Updating Date $remote..\n\033[0m";
 	system("ssh $remote 'sudo date --set \"$DATE\"'");
-	echo "# Checkup $remote..\n";
+	echo "\033[1m## Checkup $remote..\n\033[0m";
 	system("ssh -tt eros@$robot[$remote] ./env/checkup.sh $input");
 }
 else
-	echo "# The robot doesnt exist..\n";
+	echo "\033[1m## The robot doesnt exist..\n\033[0m";

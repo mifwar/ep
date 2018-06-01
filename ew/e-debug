@@ -15,8 +15,8 @@ $remote=substr($remote,0,strlen($remote));
 
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
-	echo "# Running $remote->$input..\n";
+	echo "\033[1m## Running $remote->$input..\n\033[0m";
 	system("ssh -tt eros@$robot[$remote] -X -Y ./env/eros_debug.sh $input");
 }
 else
-	echo "# The robot doesnt exist..\n";
+	echo "\033[1m## The robot doesnt exist..\n\033[0m";

@@ -15,8 +15,8 @@ $remote=substr($remote,0,strlen($remote));
 
 #$input = isset($argv[1]) ? $argv[1] : "0";
 if(array_key_exists($remote, $robot)){
-	echo "# Stopping $remote.\n";
+	echo "\033[1m## Stopping $remote.\n\033[0m";
 	system("ssh -tt eros@$robot[$remote] ./env/rosnode_killer.sh");
 }
 else
-	echo "# The robot doesnt exist..\n";
+	echo "\033[1m## The robot doesnt exist..\n\033[0m";

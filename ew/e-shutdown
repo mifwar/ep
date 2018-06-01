@@ -15,8 +15,8 @@ $remote=substr($remote,0,strlen($remote));
 
 //$remote = isset($argv[1]) ? $argv[1] : "0";
 if(array_key_exists($remote, $robot)){
-	echo "# Shutting down $remote..\n";
+	echo "\033[1m## Shutting down $remote..\n\033[0m";
 	system("ssh eros@$robot[$remote] ./env/shutdown.sh");
 }
 else
-	echo "# The robot doesnt exist..\n";
+	echo "\033[1m## The robot doesnt exist..\n\033[0m";

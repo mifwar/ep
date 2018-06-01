@@ -14,8 +14,8 @@ $remote=substr($remote,0,strlen($remote));
 //-------------------------------------------------------
 
 if(array_key_exists($remote, $robot)){
-	echo "# Pinging $remote..\n";
+	echo "\033[1m## Pinging $remote..\n\033[0m";
 	system("ping $robot[$remote]");
 }
 else
-	echo "# The robot doesnt exist..\n";
+	echo "\033[1m## The robot doesnt exist..\n\033[0m";
