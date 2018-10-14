@@ -87,6 +87,9 @@ if(array_key_exists($remote, $robot)){
 				case "dark":case "light":
 					system("e-vm_calibrate ".$input2);
 				break;
+				case "net":
+					system("e-net");
+				break;
 			}
 		break;
 	}
