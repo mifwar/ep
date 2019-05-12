@@ -15,6 +15,10 @@ case $x in
 		echo ".. Memulai monitoring huda.."
 		export ROS_MASTER_URI=http://192.168.1.3:11311
 		;;
+	bambang)
+		echo ".. Memulai monitoring bambang.."
+		export ROS_MASTER_URI=http://192.168.1.5:11311
+		;;
 	*)
 		echo ".. There is something wrong."
 		;;
@@ -23,3 +27,5 @@ esac
 # export ROS_HOSTNAME=hostname
 rosrun qdude qdude
 echo "done."
+killall qdude
+echo "node killed."

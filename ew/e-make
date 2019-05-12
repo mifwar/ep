@@ -15,7 +15,7 @@ $remote=substr($remote,0,strlen($remote));
 
 #$data = isset($argv[1]) ? $argv[1] : "0";
 if(array_key_exists($remote, $robot)){
-	echo "\033[1m## Compiling $remote..\n\033[0m";
+	echo "\033[1m## Compiling $remote.\n\033[0m";
 	system("ssh -tt eros@$robot[$remote] ./env/make.sh");
 }
 else

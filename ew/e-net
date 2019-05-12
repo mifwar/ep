@@ -8,12 +8,14 @@ while (!feof($file_handle) ) {
         $robot[$parts[0]]=substr($parts[1],0,strlen($parts[1])-1);  
 }
 fclose($file_handle);
+
+$platform = file_get_contents("platform.ini");
 $remote=file_get_contents("myrobot.ini");
 $remote=substr($remote,0,strlen($remote));
 //-----------------------------------------------------------
 if(array_key_exists($remote, $robot)){
-	echo "\033[1m## Running $remote -> set network\n\033[0m";
-	system("ssh -tt eros@$robot[$remote] ./env/net.sh $remote");
+	echo "\033[1m[$remote] Setting network.\n\033[0m";
+	system("ssh -tt eros@$robot[$remote] ./$platform/net.sh $remote");
 }
 else
-	echo "\033[1m## The robot doesnt exist..\n\033[0m";
+	echo "\033[1m[error] The robot doesnt exist.\n\033[0m";

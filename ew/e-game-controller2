@@ -12,11 +12,10 @@ fclose($file_handle);
 $remote=file_get_contents("myrobot.ini");
 $remote=substr($remote,0,strlen($remote));
 //-----------------------------------------------------------
-
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
-	echo "\033[1m[$remote] Editting $input.\n\033[0m";
-	system("ssh eros@$robot[$remote] ./env/editor.sh $input");
+	echo "\033[1m[$remote] Running Game Controller.\n\033[0m";
+	system("~/GameController/GameController-master/build/jar/start_kid.bash");
 }
 else
-	echo "\033[1m[error] The robot doesnt exist.\n\033[0m";
+	echo "\033[1m[error] There is something wrong, please try again..\n\033[0m";
