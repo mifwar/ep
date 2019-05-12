@@ -2,8 +2,7 @@
 
 source ~/env/ip_local.sh
 source /opt/ros/kinetic/setup.bash
-#source ~/reborn_ws/devel/setup.bash
-source ~/workspace/install/setup.bash
+source ~/eros_ws_1/install/setup.bash
 
 x=$1
 case $x in
@@ -26,7 +25,7 @@ case $x in
 		rqt
 	;;
 	*)
-		echo -e '\E[00;31m'"\033[1m.. There is something wrong.\033[0m"
+		echo -e '\E[00;31m'"\033[1m[krsbi] There is something wrong.\033[0m"
 	;;
 esac
 sleep 3
