@@ -72,6 +72,8 @@ if(array_key_exists($remote, $robot)){
 			system("e-edit ".$input2);break;
 		case "echo":
 			system("e-echo");break;
+		case "guvc":
+			system("e-guvc");break;
 		case "set":
 			switch($input2){
 				case "time":
