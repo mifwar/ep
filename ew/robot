@@ -5,5 +5,6 @@ if(isset($argv[1])){
 	$file = fopen("myrobot.ini",'w');
 	fwrite($file,$remote);
 	fclose($file);
+	echo "\033[1m[$remote] has been set as your robot. Handle it carefully.\n\033[0m";
 }else
 	echo "Insert robot name..\n";

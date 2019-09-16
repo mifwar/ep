@@ -9,14 +9,15 @@ while (!feof($file_handle) ) {
 }
 fclose($file_handle);
 
+$platform = file_get_contents("platform.ini");
 $remote=file_get_contents("myrobot.ini");
 $remote=substr($remote,0,strlen($remote));
 //-------------------------------------------------------
 
 if(array_key_exists($remote, $robot)){
-	echo "# Running Setting Server..\n";
-	system("ssh -R 52698:localhost:52698 $robot[$remote]");
-	echo "# Setting Server stopped..\n";
+	echo "\033[1m[$remote] Running Setting Server.\n\033[0m";
+	system("ssh -R 52698:localhost:52698 eros@$robot[$remote]");
+	echo "\033[1m[$remote] Setting Server stopped.\n\033[0m";
 }
 else
-	echo "# The robot doesnt exist..\n";
+	echo "\033[1m[error] The robot doesnt exist.\n\033[0m";

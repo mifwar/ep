@@ -9,14 +9,15 @@ while (!feof($file_handle) ) {
 }
 fclose($file_handle);
 
+$platform = file_get_contents("platform.ini");
 $remote=file_get_contents("myrobot.ini");
 $remote=substr($remote,0,strlen($remote));
 //-----------------------------------------------------------
 
 //$remote = isset($argv[1]) ? $argv[1] : "0";
 if(array_key_exists($remote, $robot)){
-	echo "# Rebooting $remote..\n";
-	system("ssh eros@$robot[$remote] ./env/reboot.sh");
+	echo "\033[1m[$remote] Rebooting robot.\n\033[0m";
+	system("ssh eros@$robot[$remote] ./$platform/reboot.sh");
 }
 else
-	echo "# The robot doesnt exist..\n";
+	echo "\033[1m[error] The robot doesnt exist.\n\033[0m";

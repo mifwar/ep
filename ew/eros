@@ -17,14 +17,27 @@ $input2 = isset($argv[2]) ? $argv[2] : "";
 if(array_key_exists($remote, $robot)){
 	switch($input1){
 		case "shutdown":
-			system("e-shutdown");
-		break;
+			system("e-shutdown");break;
 		case "reboot":
-			system("e-reboot");
-		break;
+			system("e-reboot");break;
 		case "checkup":
-			system("e-checkup ".$input2);
-		break;
+			system("e-checkup ".$input2);break;
+		case "monitor":
+			system("monitor.sh ".$remote);break;
+		case "rcv":
+			system("e-rcv ".$input2);break;
+		case "rcv2":
+			system("e-rcv2 ".$input2);break;
+		case "pixel":
+			system("e-pixel");break;
+		case "map":
+			system("e-map ".$input2);break;
+		case "echo":
+			system("e-echo");break;
+		case "gc":
+			system("e-game-controller");break;			
+		case "gc2":
+			system("e-game-controller2");break;
 		case "run":
 			/*$file = fopen("run.ini",'w');
 			switch($input2){
@@ -34,8 +47,7 @@ if(array_key_exists($remote, $robot)){
 				break;
 			}
 			fclose($file);*/
-			system("e-run ".$input2);
-		break;
+			system("e-run ".$input2);break;
 		case "debug":
 			//$file = fopen("run.ini",'w');
 			//switch($input2){
@@ -45,40 +57,48 @@ if(array_key_exists($remote, $robot)){
 			//	break;
 			//}
 			//fclose($file);
-			system("e-debug ".$input2);
-		break;
+			system("e-debug ".$input2);break;
 		case "stop":
 			//$stop=file_get_contents("run.ini");
 			//$stop=substr($stop,0,strlen($stop));
-			system("e-stop");
-		break;
-		case "make":
-			system("e-make");
-		break;
+			system("e-stop");break;
+		//case "make":
+		//	system("e-make");break;
 		case "build":
-			system("e-build ".$input2);
-		break;
+			system("e-build ".$input2);break;
+			case "clean":
+			system("e-clean ".$input2);break;
 		case "ping":
-			system("e-ping");
-		break;
+			system("e-ping");break;
 		case "edit":
-			system("e-edit ".$input2);
-		break;
-		break;
+			system("e-edit ".$input2);break;
+		case "echo":
+			system("e-echo");break;
+		case "guvc":
+			system("e-guvc");break;
 		case "set":
 			switch($input2){
 				case "time":
 					system("e-time");
 				break;
-				case "vision":case "kepala":case "capture":case "camera":case "ball":case "calibration":
+				case "vision":case "kepala":case "capture":case "camera":case "ball":case "calibration":case "focus":
 					system("e-setting ".$input2);
 				break;
 				case "server":
 					system("e-server");
+				break;
+				case "dark":case "light":
+					system("e-vm_calibrate ".$input2);
+				break;
+				case "ip":
+					system("e-ip ");
+				break;
+				case "net":
+					system("e-net");
 				break;
 			}
 		break;
 	}
 }
 else
-	echo "# The robot doesnt exist..\n";
+	echo "\033[1m[error] The robot doesnt exist.\n\033[0m";
