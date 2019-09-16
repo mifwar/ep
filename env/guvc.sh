@@ -1,8 +1,9 @@
-#!/bin/bash
-# file: roslaunch.sh
+#! /bin/bash
 
 source ~/env/ip_local.sh
 source /opt/ros/kinetic/setup.bash
 source ~/eros_ws_1/install/setup.bash
 
-roslaunch settings capture_goalpost.launch
+guvcview -z
+
+echo -e "\033[1mopen guvcview-z.\033[0m"

@@ -6,3 +6,4 @@ source ~/eros_ws_robocup/install/setup.bash
 
 rosnode kill -a
 sudo pkill ros
+echo -e "\033[1mdone.\033[0m"

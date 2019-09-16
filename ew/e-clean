@@ -5,18 +5,18 @@ while (!feof($file_handle) ) {
 	$line_of_text = fgets($file_handle);
 	$parts = explode('=', $line_of_text);
 	if ($parts[0]!=NULL)
-		$robot[$parts[0]]=substr($parts[1],0,strlen($parts[1])-1);
+		$robot[$parts[0]]=substr($parts[1],0,strlen($parts[1])-1);	
 }
 fclose($file_handle);
-
+$platform = file_get_contents("platform.ini");
 $remote=file_get_contents("myrobot.ini");
 $remote=substr($remote,0,strlen($remote));
 //-----------------------------------------------------------
 
-$input = isset($argv[1]) ? $argv[1] : "";
+$data = isset($argv[1]) ? $argv[1] : "0";
 if(array_key_exists($remote, $robot)){
-	echo "[$remote] Opening Monitor.\n";
-		system("monitor.sh $input");
+	echo "\033[1m[$remote] clearing the sources.\n\033[0m";
+	system("ssh -tt eros@$robot[$remote] ./$platform/clean.sh $data");
 }
 else
-	echo "[error] The robot doesnt exist.\n";
+	echo "\033[1m[error] The robot doesnt exist.\n\033[0m";
