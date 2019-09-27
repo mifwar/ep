@@ -16,6 +16,8 @@ $input1 = isset($argv[1]) ? $argv[1] : "";
 $input2 = isset($argv[2]) ? $argv[2] : "";
 if(array_key_exists($remote, $robot)){
 	switch($input1){
+		case "help":
+			system("cd ~/ew && cat README.md");break;
 		case "shutdown":
 			system("e-shutdown");break;
 		case "reboot":
