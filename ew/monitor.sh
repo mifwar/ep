@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source ~/catkin_ws/devel/setup.bash
 x=$1
@@ -23,9 +23,6 @@ case $x in
 		echo ".. There is something wrong."
 		;;
 esac
-# export ROS_IP=hostname --all-ip-addresses
-# export ROS_HOSTNAME=hostname
+
 rosrun qdude qdude
-echo "done."
 killall qdude
-echo "node killed."

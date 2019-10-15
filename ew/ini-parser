@@ -1,6 +1,7 @@
 #!/usr/bin/php
 <?php
 
+// Karakter bold dan end bold pada terminal
 const $Bold = "\033[1m";
 const $endBold = "\033[0m";
 
@@ -28,13 +29,3 @@ $platform = file_get_contents("platform.ini");
 
 // Robot kita sekarang
 $remote = file_get_contents("myrobot.ini");
-
-//-----------------------------------------------------------
-
-// Nama robot valid
-if(array_key_exists($remote, $robot)){
-	echo $Bold+"[$remote]$endBold --- Shutting down...\n";
-
-	// SSH ke robot lalu jalankan perintah shutdown pada komputer
-	system("ssh eros@$robot[$remote] ./$platform/shutdown.sh");
-} else echo $Bold+"[Error]$endBold --- Nama robot $remote tidak ada.\n";

@@ -1,18 +1,38 @@
 #!/usr/bin/php
 <?php
-$file_handle = fopen("robot.ini", "r");
-while (!feof($file_handle) ) {
-	$line_of_text = fgets($file_handle);
-	$parts = explode('=', $line_of_text);
-	if ($parts[0]!=NULL)
-		$robot[$parts[0]]=substr($parts[1],0,strlen($parts[1])-1);
-}
-fclose($file_handle);
 
-$platform = file_get_contents("platform.ini");
-$remote=file_get_contents("myrobot.ini");
-$remote=substr($remote,0,strlen($remote));
+// const $Bold = "\033[1m";
+// const $endBold = "\033[0m";
+
+// // Buka file robot.ini sebagai mode baca
+// $file_handle = fopen("robot.ini", "r");
+
+// // Baca per baris sampai akhir file
+// while (!feof($file_handle) ) {
+// 	// Ambil isi baris
+// 	$line_of_text = fgets($file_handle);
+
+// 	// Pisahkan menjadi bagian kiri dan kanan dari tanda sama dengan
+// 	$kiri_kanan = explode('=', $line_of_text);
+	
+// 	// Jika bagian kiri tanda sama dengan (=) tidak kosong,
+// 	// jadikan nama index pada array robot dan masukan ip nya.
+// 	if ($kiri_kanan[0]!=NULL) $robot[$kiri_kanan[0]]=$kiri_kanan[1];
+// }
+
+// // Tutup file sesudah digunakan
+// fclose($file_handle);
+
+// // Platform kita sekarang
+// $platform = file_get_contents("platform.ini");
+
+// // Robot kita sekarang
+// $remote = file_get_contents("myrobot.ini");
+
+include('./ini-parser');
+
 //-----------------------------------------------------------
+
 $DATE=date('Y-m-d G:i:s');
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 x=$2
 case $x in
@@ -18,5 +18,3 @@ case $x in
 		echo ".. There is something wrong."
 		;;
 esac
-# export ROS_IP=hostname --all-ip-addresses
-# export ROS_HOSTNAME=hostname
