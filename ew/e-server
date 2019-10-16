@@ -6,10 +6,9 @@ include($path.'/ini-parser');
 
 //-------------------------------------------------------
 
-if(array_key_exists($remote, $robot)){
+if(array_key_exists($remote, $robot) && array_key_exists($platform, $workspace)){
 	echo $Bold."[$remote]$endBold --- Running Setting Server.\n";
 	system("ssh -R 52698:localhost:52698 eros@$robot[$remote]");
+	
 	echo $Bold."[$remote]$endBold --- Setting Server stopped.\n";
-}
-else
-	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";
+} else echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

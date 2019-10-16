@@ -6,8 +6,7 @@ include($path.'/ini-parser');
 
 //-----------------------------------------------------------
 
-if(array_key_exists($remote, $robot)){
+if(array_key_exists($remote, $robot) && array_key_exists($platform, $workspace)){
 	echo "Compiling";
 	system("ssh -tt eros@$robot[$remote] ~/remote/make.sh $platform $workspace[$platform]");
-}
-else echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";
+} else echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

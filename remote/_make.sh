@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 source /opt/ros/kinetic/setup.bash
-source ~/eros_ws_1/devel/setup.bash
+source ~/$2/devel/setup.bash
 
 echo "Running catkin_make"
 
-cd ~/eros_ws_1/
+cd ~/$2/
 catkin_make

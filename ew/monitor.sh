@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source ~/catkin_ws/devel/setup.bash
-x=$1
+x=$3
 case $x in
 	umar)
 		echo ".. Memulai monitoring Umar.."
@@ -20,7 +20,7 @@ case $x in
 		export ROS_MASTER_URI=http://192.168.1.5:11311
 		;;
 	*)
-		echo ".. There is something wrong."
+		echo ".. Wrong argument (umar | slamet | huda | bambang | bejo)."
 		;;
 esac
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # file: roslaunch.sh
-source ~/env/ip_wifi.sh
+source ~/remote/ip_wifi.sh
 source /opt/ros/kinetic/setup.bash
-source ~/eros_ws_1/install/setup.bash
+source ~/$2/install/setup.bash
 
 #export ROS_IP=10.42.43.2
 #export ROS_HOSTNAME=10.42.43.2

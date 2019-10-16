@@ -7,9 +7,7 @@ include($path.'/ini-parser');
 //-----------------------------------------------------------
 $DATE=date('Y-m-d G:i:s');
 $input = isset($argv[1]) ? $argv[1] : "";
-if(array_key_exists($remote, $robot)){
+if(array_key_exists($remote, $robot) && array_key_exists($platform, $workspace)){
 	echo $Bold."[$remote]$endBold --- Updating Date.\n";
 	system("ssh eros@$robot[$remote] 'sudo date --set \"$DATE\"'");
-}
-else
-	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";
+} else echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

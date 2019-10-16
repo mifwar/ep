@@ -2,7 +2,7 @@
 # file: roslaunch.sh
 
 source /opt/ros/kinetic/setup.bash
-source ~/eros_ws_1/devel/setup.bash
+source ~/$2/devel/setup.bash
 
 #export ROS_IP=10.42.43.2
 #export ROS_HOSTNAME=10.42.43.2

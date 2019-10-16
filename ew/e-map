@@ -6,10 +6,8 @@ include($path.'/ini-parser');
 
 //-----------------------------------------------------------
 $input = isset($argv[1]) ? $argv[1] : "";
-if(array_key_exists($remote, $robot)){
+if(array_key_exists($remote, $robot) && array_key_exists($platform, $workspace)){
 	echo $Bold."[$remote]$endBold --- Starting RCV.\n";
 	// system($path."/rcv8/build-rcv8-Desktop-Debug/rcv8 $input");
 	system($path."/rcv8/build-mapOnly-Desktop-Debug/mapOnly $input");
-}
-else
-	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";
+} else echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

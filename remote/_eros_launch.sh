@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source /opt/ros/kinetic/setup.bash
-source ~/eros_ws_1/devel/setup.bash
+source ~/$2/devel/setup.bash
 
 export ROS_IP=127.0.0.1
 export ROS_HOSTNAME=127.0.0.1

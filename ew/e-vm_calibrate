@@ -6,9 +6,7 @@ include($path.'/ini-parser');
 
 //-----------------------------------------------------------
 $input = isset($argv[1]) ? $argv[1] : "";
-if(array_key_exists($remote, $robot)){
+if(array_key_exists($remote, $robot) && array_key_exists($platform, $workspace)){
 	echo $Bold."[$remote]$endBold --- Setting [ $input ] vision_module calibration.\n";
 	system("ssh -tt eros@$robot[$remote] -X -Y ~/remote/vm_calibrate.sh $platform $workspace[$platform] $input");
-}
-else
-	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";
+} else echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

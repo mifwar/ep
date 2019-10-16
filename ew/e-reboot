@@ -7,7 +7,7 @@ include($path.'/ini-parser');
 //-----------------------------------------------------------
 
 // Nama robot valid
-if(array_key_exists($remote, $robot)){
+if(array_key_exists($remote, $robot) && array_key_exists($platform, $workspace)){
 	echo $Bold."[$remote]$endBold --- Rebooting robot.\n";
 
 	// SSH ke robot lalu jalankan perintah reboot komputer

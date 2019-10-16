@@ -17,7 +17,7 @@ case $HOSTNAME in
 		sudo ifconfig wlp2s0 192.168.1.4 netmask 255.255.0.0
 	;;
 	*)
-		echo -e '\E[00;31m'"\033[1m.. There is something wrong.\033[0m"
+		echo -e "\033[1m.. Wrong argument.\033[0m"
 	;;
 esac
 sudo wpa_supplicant -B -iwlp2s0 -c/etc/wpa_supplicant.conf -Dwext;

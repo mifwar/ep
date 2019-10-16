@@ -7,7 +7,7 @@ include($path.'/ini-parser');
 //-----------------------------------------------------------
 
 $data = isset($argv[1]) ? $argv[1] : "0";
-if(array_key_exists($remote, $robot)){
+if(array_key_exists($remote, $robot) && array_key_exists($platform, $workspace)){
 	echo $Bold."[$remote]$endBold --- clearing the sources.\n";
 	system("ssh -tt eros@$robot[$remote] ~/remote/clean.sh $platform $workspace[$platform] $data");
 } else echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";
