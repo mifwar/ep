@@ -4,6 +4,8 @@ source ~/remote/ip_local.sh
 source /opt/ros/kinetic/setup.bash
 source ~/$2/install/setup.bash
 
+echo "$0 --- $1 --- $2 --- $3 --- $4"
+
 x=$3
 case $x in
 	main_gui)
