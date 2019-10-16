@@ -27,5 +27,9 @@ fclose($file_handle);
 // Platform kita sekarang
 $platform = file_get_contents($path."/platform.ini");
 
+// Nama folder workspace KRSBI dan Robocup
+$workspace["krsbi"] = "eros_ws_1";
+$workspace["robocup"] = "eros_ws_robocup";
+
 // Robot kita sekarang
 $remote = file_get_contents($path."/myrobot.ini");

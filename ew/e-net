@@ -7,7 +7,7 @@ include($path.'/ini-parser');
 //-----------------------------------------------------------
 if(array_key_exists($remote, $robot)){
 	echo $Bold."[$remote]$endBold --- Setting network.\n";
-	system("ssh -tt eros@$robot[$remote] $path/../$platform/net.sh $remote");
+	system("ssh -tt eros@$robot[$remote] ~/remote/net.sh $remote");
 }
 else
 	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

@@ -8,7 +8,7 @@ include($path.'/ini-parser');
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
 	echo $Bold."[$remote]$endBold --- Running in $input.\n";
-	system("ssh -tt eros@$robot[$remote] $path/../$platform/run.sh $input");
+	system("ssh -tt eros@$robot[$remote] ~/remote/run.sh $platform $workspace[$platform] $input");
 }
 else
 	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

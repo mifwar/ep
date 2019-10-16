@@ -9,6 +9,4 @@ $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
 	echo $Bold."[$remote]$endBold --- Running Game Controller.\n";
 	system($path."/GameController/GameController-HL-20160627/start_kid.bash");
-}
-else
-	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";
+} else echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

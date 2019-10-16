@@ -11,6 +11,7 @@ $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
 	echo $Bold."[$remote]$endBold --- Synchronizing time.\n";
 	system("ssh eros@$robot[$remote] 'sudo date --set \"$DATE\"'");
+	
 	echo $Bold."[$remote]$endBold --- Checkup.\n";
-	system("ssh -tt eros@$robot[$remote] $path/../$platform/checkup.sh $input");
+	system("ssh -tt eros@$robot[$remote] ~/remote/checkup.sh $platform $workspace[$platform] $input");
 } else echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

@@ -9,7 +9,7 @@ include($path.'/ini-parser');
 #$input = isset($argv[1]) ? $argv[1] : "0";
 if(array_key_exists($remote, $robot)){
 	echo $Bold."[$remote]$endBold --- Stopping platform.\n";
-	system("ssh -tt eros@$robot[$remote] $path/../$platform/rosnode_killer.sh");
+	system("ssh -tt eros@$robot[$remote] ~/remote/rosnode_killer.sh $platform $workspace[$platform]");
 }
 else
 	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";
