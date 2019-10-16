@@ -8,7 +8,7 @@ include($path.'/ini-parser');
 
 // Nama robot valid
 if(array_key_exists($remote, $robot)){
-	echo $Bold+"[$remote]$endBold --- Rebooting robot.\n";
+	echo $Bold."[$remote]$endBold --- Rebooting robot.\n";
 
 	// SSH ke robot lalu jalankan perintah reboot komputer
 	system("ssh eros@$robot[$remote] $path/../$platform/reboot.sh");
