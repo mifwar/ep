@@ -15,9 +15,9 @@ $remote=substr($remote,0,strlen($remote));
 //-------------------------------------------------------
 
 if(array_key_exists($remote, $robot)){
-	echo "\033[1m[$remote] Running Setting Server.\n\033[0m";
+	echo $Bold."[$remote]$endBold --- Running Setting Server.\n";
 	system("ssh -R 52698:localhost:52698 eros@$robot[$remote]");
-	echo "\033[1m[$remote] Setting Server stopped.\n\033[0m";
+	echo $Bold."[$remote]$endBold --- Setting Server stopped.\n";
 }
 else
-	echo "\033[1m[error] The robot doesnt exist.\n\033[0m";
+	echo $Bold."[Error]$endBold --- Robot dengan nama $platform tidak ada.\n";

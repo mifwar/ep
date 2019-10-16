@@ -15,8 +15,8 @@ $remote=substr($remote,0,strlen($remote));
 //-----------------------------------------------------------
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
-	echo "\033[1m[$remote] Setting [ $input ] vision_module calibration.\n\033[0m";
-	system("ssh -tt eros@$robot[$remote] -X -Y ./$platform/vm_calibrate.sh $input");
+	echo $Bold."[$remote]$endBold --- Setting [ $input ] vision_module calibration.\n";
+	system("ssh -tt eros@$robot[$remote] -X -Y $path/../$platform/vm_calibrate.sh $input");
 }
 else
-	echo "\033[1m[error] The robot doesnt exist.\n\033[0m";
+	echo $Bold."[Error]$endBold --- Robot dengan nama $platform tidak ada.\n";

@@ -1,5 +1,8 @@
 #!/usr/bin/php
 <?php
+
+$path = pathinfo($_SERVER["_"])["dirname"];
+
 // Jika ada argumen yang dimasukan oleh user
 if(isset($argv[1])){
 	// Jika argumen ke satu sesuai nama robot yang ada
@@ -11,7 +14,7 @@ if(isset($argv[1])){
 		$argv[1] == "umar"
 	) {
 		// Buka file myrobot.ini dengan mode write (tulis)
-		$file = fopen("myrobot.ini",'w');
+		$file = fopen($path."/myrobot.ini",'w');
 
 		// Tulis nama robot pada argumen ke satu ke $file
 		fwrite($file,$argv[1]);

@@ -2,11 +2,11 @@
 <?php
 
 // Karakter bold dan end bold pada terminal
-const $Bold = "\033[1m";
-const $endBold = "\033[0m";
+$Bold = "\033[1m";
+$endBold = "\033[0m";
 
 // Buka file robot.ini sebagai mode baca
-$file_handle = fopen("robot.ini", "r");
+$file_handle = fopen($path."/robot.ini", "r");
 
 // Baca per baris sampai akhir file
 while (!feof($file_handle) ) {
@@ -25,7 +25,7 @@ while (!feof($file_handle) ) {
 fclose($file_handle);
 
 // Platform kita sekarang
-$platform = file_get_contents("platform.ini");
+$platform = file_get_contents($path."/platform.ini");
 
 // Robot kita sekarang
-$remote = file_get_contents("myrobot.ini");
+$remote = file_get_contents($path."/myrobot.ini");

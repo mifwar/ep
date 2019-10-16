@@ -1,45 +1,16 @@
 #!/usr/bin/php
 <?php
 
-// const $Bold = "\033[1m";
-// const $endBold = "\033[0m";
-
-// // Buka file robot.ini sebagai mode baca
-// $file_handle = fopen("robot.ini", "r");
-
-// // Baca per baris sampai akhir file
-// while (!feof($file_handle) ) {
-// 	// Ambil isi baris
-// 	$line_of_text = fgets($file_handle);
-
-// 	// Pisahkan menjadi bagian kiri dan kanan dari tanda sama dengan
-// 	$kiri_kanan = explode('=', $line_of_text);
-	
-// 	// Jika bagian kiri tanda sama dengan (=) tidak kosong,
-// 	// jadikan nama index pada array robot dan masukan ip nya.
-// 	if ($kiri_kanan[0]!=NULL) $robot[$kiri_kanan[0]]=$kiri_kanan[1];
-// }
-
-// // Tutup file sesudah digunakan
-// fclose($file_handle);
-
-// // Platform kita sekarang
-// $platform = file_get_contents("platform.ini");
-
-// // Robot kita sekarang
-// $remote = file_get_contents("myrobot.ini");
-
-include('./ini-parser');
+$path = pathinfo($_SERVER["_"])["dirname"];
+include($path.'/ini-parser');
 
 //-----------------------------------------------------------
 
 $DATE=date('Y-m-d G:i:s');
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
-	echo "\033[1m[$remote] Synchronizing time.\n\033[0m";
+	echo $Bold."[$remote]$endBold --- Synchronizing time.\n";
 	system("ssh eros@$robot[$remote] 'sudo date --set \"$DATE\"'");
-	echo "\033[1m[$remote] Checkup.\n\033[0m";
-	system("ssh -tt eros@$robot[$remote] ./$platform/checkup.sh $input");
-}
-else
-	echo "\033[1m[error] The robot doesnt exist.\n\033[0m";
+	echo $Bold."[$remote]$endBold --- Checkup.\n";
+	system("ssh -tt eros@$robot[$remote] $path/../$platform/checkup.sh $input");
+} else echo $Bold."[Error]$endBold --- Robot dengan nama $platform tidak ada.\n";

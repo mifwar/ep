@@ -15,8 +15,8 @@ $remote=substr($remote,0,strlen($remote));
 $DATE=date('Y-m-d G:i:s');
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
-	echo "\033[1m[$remote] Updating Date.\n\033[0m";
+	echo $Bold."[$remote]$endBold --- Updating Date.\n";
 	system("ssh eros@$robot[$remote] 'sudo date --set \"$DATE\"'");
 }
 else
-	echo "\033[1m[error] The robot doesnt exist.\n\033[0m";
+	echo $Bold."[Error]$endBold --- Robot dengan nama $platform tidak ada.\n";

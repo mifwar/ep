@@ -1,21 +1,14 @@
 #!/usr/bin/php
 <?php
-$file_handle = fopen("robot.ini", "r");
-while (!feof($file_handle) ) {
-	$line_of_text = fgets($file_handle);
-	$parts = explode('=', $line_of_text);
-	if ($parts[0]!=NULL)
-		$robot[$parts[0]]=substr($parts[1],0,strlen($parts[1])-1);
-}
-fclose($file_handle);
 
-$remote=file_get_contents("myrobot.ini");
-$remote=substr($remote,0,strlen($remote));
+$path = pathinfo($_SERVER["_"])["dirname"];
+include($path.'/ini-parser');
+
 //-----------------------------------------------------------
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
-	echo "\033[1m[$remote] Running Game Controller.\n\033[0m";
+	echo $Bold."[$remote]$endBold --- Running Game Controller.\n";
 	system("~/GameController/GameController-master/build/jar/start_kid.bash");
 }
 else
-	echo "\033[1m[error] There is something wrong, please try again..\n\033[0m";
+	echo "\033[1m[error] There is something wrong, please try again..\n";
