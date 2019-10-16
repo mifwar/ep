@@ -8,8 +8,8 @@ include($path.'/ini-parser');
 
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
-	echo "[$remote] Starting Pixel Debugging.\n";
-		system("./pixeldebug/build-pixeldebug-Desktop-Debug/pixeldebug");
+	echo $Bold."[$remote]$endBold --- Starting Pixel Debugging.\n";
+		system($path."/pixeldebug/build-pixeldebug-Desktop-Debug/pixeldebug");
 }
 else
-	echo "[error] The robot doesnt exist.\n";
+	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

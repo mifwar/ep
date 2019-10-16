@@ -8,7 +8,7 @@ include($path.'/ini-parser');
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
 	echo $Bold."[$remote]$endBold --- Running Game Controller.\n";
-	system("~/GameController/GameController-master/build/jar/start_kid.bash");
+	system($path."/GameController/GameController-master/build/jar/start_kid.bash");
 }
 else
-	echo "\033[1m[error] There is something wrong, please try again..\n";
+	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

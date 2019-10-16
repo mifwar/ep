@@ -13,4 +13,4 @@ if(array_key_exists($remote, $robot)){
 	system("ssh eros@$robot[$remote] 'sudo date --set \"$DATE\"'");
 	echo $Bold."[$remote]$endBold --- Checkup.\n";
 	system("ssh -tt eros@$robot[$remote] $path/../$platform/checkup.sh $input");
-} else echo $Bold."[Error]$endBold --- Robot dengan nama $platform tidak ada.\n";
+} else echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

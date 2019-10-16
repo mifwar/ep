@@ -8,8 +8,8 @@ include($path.'/ini-parser');
 
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
-	echo "# Setting $remote..\n";
+	echo $Bold."[$remote]$endBold --- Setting $remote..\n";
 	system("ssh eros@$robot[$remote] $path/../$platform/param.sh");
 }
 else
-	echo "# The robot doesnt exist..\n";
+	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

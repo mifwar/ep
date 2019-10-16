@@ -11,4 +11,4 @@ if(array_key_exists($remote, $robot)){
 	system("ping $robot[$remote]");
 }
 else
-	echo $Bold."[Error]$endBold --- Robot dengan nama $platform tidak ada.\n";
+	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

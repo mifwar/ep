@@ -8,8 +8,8 @@ include($path.'/ini-parser');
 
 $input = isset($argv[1]) ? $argv[1] : "";
 if(array_key_exists($remote, $robot)){
-	echo "[$remote] Opening Monitor.\n";
+	echo $Bold."[$remote]$endBold --- Opening Monitor.\n";
 		system("monitor.sh $input");
 }
 else
-	echo "[error] The robot doesnt exist.\n";
+	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

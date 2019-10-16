@@ -1,17 +1,9 @@
 #!/usr/bin/php
 <?php
-$file_handle = fopen("robot.ini", "r");
-while (!feof($file_handle) ) {
-	$line_of_text = fgets($file_handle);
-	$parts = explode('=', $line_of_text);
-	if ($parts[0]!=NULL)
-		$robot[$parts[0]]=substr($parts[1],0,strlen($parts[1])-1);
-}
-fclose($file_handle);
 
-$platform = file_get_contents("platform.ini");
-$remote=file_get_contents("myrobot.ini");
-$remote=substr($remote,0,strlen($remote));
+$path = pathinfo($_SERVER["_"])["dirname"];
+include($path.'/ini-parser');
+
 //-------------------------------------------------------
 
 if(array_key_exists($remote, $robot)){
@@ -20,4 +12,4 @@ if(array_key_exists($remote, $robot)){
 	echo $Bold."[$remote]$endBold --- Setting Server stopped.\n";
 }
 else
-	echo $Bold."[Error]$endBold --- Robot dengan nama $platform tidak ada.\n";
+	echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";
