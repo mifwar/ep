@@ -1,0 +1,35 @@
+#!/usr/bin/php
+<?php
+
+// Karakter bold dan end bold pada terminal
+$Bold = "\033[1m";
+$endBold = "\033[0m";
+
+// Buka file robot.ini sebagai mode baca
+$file_handle = fopen($path."/robot.ini", "r");
+
+// Baca per baris sampai akhir file
+while (!feof($file_handle) ) {
+	// Ambil isi baris
+	$line_of_text = fgets($file_handle);
+
+	// Pisahkan menjadi bagian kiri dan kanan dari tanda sama dengan
+	$kiri_kanan = explode('=', $line_of_text);
+	
+	// Jika bagian kiri tanda sama dengan (=) tidak kosong,
+	// jadikan nama index pada array robot dan masukan ip nya.
+	if ($kiri_kanan[0]!=NULL) $robot[$kiri_kanan[0]]=substr($kiri_kanan[1], 0, strlen($kiri_kanan[1])-1);
+}
+
+// Tutup file sesudah digunakan
+fclose($file_handle);
+
+// Platform kita sekarang
+$platform = file_get_contents($path."/platform.ini");
+
+// Nama folder workspace KRSBI dan Robocup
+$workspace["krsbi"] = "eros_ws_1";
+$workspace["robocup"] = "eros_ws_robocup";
+
+// Robot kita sekarang
+$remote = file_get_contents($path."/myrobot.ini");

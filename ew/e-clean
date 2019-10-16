@@ -1,22 +1,13 @@
 #!/usr/bin/php
 <?php
-$file_handle = fopen("robot.ini", "r");
-while (!feof($file_handle) ) {
-	$line_of_text = fgets($file_handle);
-	$parts = explode('=', $line_of_text);
-	if ($parts[0]!=NULL)
-		$robot[$parts[0]]=substr($parts[1],0,strlen($parts[1])-1);	
-}
-fclose($file_handle);
-$platform = file_get_contents("platform.ini");
-$remote=file_get_contents("myrobot.ini");
-$remote=substr($remote,0,strlen($remote));
+
+$path = pathinfo($_SERVER["_"])["dirname"];
+include($path.'/ini-parser');
+
 //-----------------------------------------------------------
 
 $data = isset($argv[1]) ? $argv[1] : "0";
-if(array_key_exists($remote, $robot)){
-	echo "\033[1m[$remote] clearing the sources.\n\033[0m";
-	system("ssh -tt eros@$robot[$remote] ./$platform/clean.sh $data");
-}
-else
-	echo "\033[1m[error] The robot doesnt exist.\n\033[0m";
+if(array_key_exists($remote, $robot) && array_key_exists($platform, $workspace)){
+	echo $Bold."[$remote]$endBold --- clearing the sources.\n";
+	system("ssh -tt eros@$robot[$remote] ~/remote/clean.sh $platform $workspace[$platform] $data");
+} else echo $Bold."[Error]$endBold --- Robot dengan nama $remote tidak ada.\n";

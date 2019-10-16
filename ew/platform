@@ -1,19 +1,20 @@
 #!/usr/bin/php
 <?php
-if(isset($argv[1])){
-	$remote = $argv[1];
-	if($remote=="krsbi" || $remote=="robocup"){
-		$file = fopen("platform.ini",'w');
-		if($remote=="krsbi")fwrite($file,"env");
-		if($remote=="robocup")fwrite($file,"envr");
+
+$path = pathinfo($_SERVER["_"])["dirname"];
+
+// Jika ada argumen yang dimasukan oleh user
+if(isset($argv[1])) {
+	// Jika argumen ke satu sesuai nama platform yang ada
+	if($argv[1]=="krsbi" || $argv[1]=="robocup"){
+		// Buka file platform.ini dengan mode write (tulis)
+		$file = fopen($path."/platform.ini",'w');
+
+		// Tulis nama platform pada argumen ke satu ke $file
+		fwrite($file, $argv[1]);
+
+		// Tutup $file
 		fclose($file);
-		echo "\033[1mSuccessfully switched to $remote platform.\n\033[0m";
-	}else{
-		echo "\033[1mFailed to switch platform.\n\033[0m";
-	}
-}else{
-	echo "\033[1mInsert platform name.\n\n\033[0m";
-	echo "Options:\n";
-	echo "usage:\tplatform krsbi\t\t- For playing in KRSBI 2019\n";
-	echo "usage:\tplatform robocup\t- For playing in ROBOCUP 2019\n";
-}
+		echo "Berhasil berganti platform ke $argv[1].\n";
+	} else echo "Platform tidak dikenali. (krsbi | robocup)\n";
+} else echo "Masukan nama platform. (krsbi | robocup)\n";
