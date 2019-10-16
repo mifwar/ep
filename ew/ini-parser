@@ -18,7 +18,7 @@ while (!feof($file_handle) ) {
 	
 	// Jika bagian kiri tanda sama dengan (=) tidak kosong,
 	// jadikan nama index pada array robot dan masukan ip nya.
-	if ($kiri_kanan[0]!=NULL) $robot[$kiri_kanan[0]]=$kiri_kanan[1];
+	if ($kiri_kanan[0]!=NULL) $robot[$kiri_kanan[0]]=substr($kiri_kanan[1], 0, strlen($kiri_kanan[1])-1);
 }
 
 // Tutup file sesudah digunakan
