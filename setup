@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 cd $(dirname $0)
-echo "export \$PATH=$(pwd)/ew:\$PATH" >> ~/.bashrc
+echo "export PATH=$(pwd)/ew:$PATH" >> ~/.bashrc
+export PATH=$(pwd)/ew:$PATH
