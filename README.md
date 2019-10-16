@@ -48,5 +48,7 @@
 - `eros set server`				-> Set sublime-text server, make sure sublime-text was opened in laptop
 - `eros edit [parameter]`		-> Open certain file in sublime text after set server. ai | serial | param | referee | sv
 
-# [UPDATE!!]
+# [!!UPDATE!!]
 **Set your ip_local and ip_wifi inside `/krsbi` and `/robocup`**
+
+# [Membuat persistent link USB] (https://gist.github.com/YandiBanyuKarimaWaly/5c3d674aff8b9a6d30f8be5203faf355)
